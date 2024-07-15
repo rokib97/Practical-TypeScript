@@ -1,94 +1,60 @@
-// Type Annotations
-let name: string = "rokib";
-name = "something";
-name = name.toUpperCase();
-// console.log(name);
+// Object
+let car: {
+  name: string;
+  year: number;
+  country?: string;
+} = {
+  name: "toyota",
+  year: 2020,
+};
+car.name = "audi";
 
-let number: number = 10;
-number = 20;
-number = number.valueOf();
-// console.log(number);
+let car1: {
+  name: string;
+  year: number;
+  readonly company: string;
+} = {
+  name: "audi",
+  year: 2024,
+  company: "audi",
+};
 
-let isAdmin: boolean = true;
-isAdmin = false;
-// console.log(isAdmin);
+let book = { name: "book", cost: 20 };
+let pen = { name: "pen", cost: 10 };
+let notebook = { name: "book" };
 
-// ## Challenge
-
-// - Create a variable of type string and try to invoke a string method on it.
-let myName: string = "ShakeAndBake";
-myName = myName.toUpperCase();
-// console.log(myName);
-
-// - Create a variable of type number and try to perform a mathematical operation on it.
-let myNum: number = 30;
-myNum = myNum - 5;
-// console.log(myNum);
-
-// - Create a variable of type boolean and try to perform a logical operation on it.
-let isAdultUser: boolean = myNum >= 18;
-isAdultUser = !isAdultUser;
-// console.log(isAdultUser);
-
-// Union Type
-let tax: number | string | boolean = 20;
-tax = 100;
-tax = "$100";
-tax = false;
-
-// fancy name - literal value type
-let requestStatus: "pending" | "success" | "error" = "pending";
-requestStatus = "success";
-requestStatus = "error";
-
-// any type
-let notSure: any = 4;
-notSure = "not sure could be a string";
-notSure = false;
-let random; // type any
-
-// Practical Application of Type Annotation
-
-const names = ["rokib", "sakib", "alom", "tania"];
-
-let foundName: string | undefined;
-
-for (const name of names) {
-  if (name === "rokib") {
-    foundName = name;
-    foundName = foundName.toUpperCase();
-    break;
-  }
-}
-// console.log(foundName?.length);
+const items: { readonly name: string; cost?: number }[] = [book, pen, notebook];
+// items[0].name = "new book";// Error: Cannot assign to 'title' because it is a read-only property
 
 // ## Challenge
 
-// - Create a variable orderStatus of type 'processing' | 'shipped' | 'delivered' and assign it the value 'processing'. Then, try to assign it the values 'shipped' and 'delivered'.
-let orderStatus: "processing" | "shipped" | "delivered" = "processing";
-orderStatus = "shipped";
-orderStatus = "delivered";
+// - Create an object bike of type { brand: string, year: number } and assign it some values. Then, try to assign a string to the year property.
+let bike: {
+  brand: string;
+  year: number;
+} = {
+  brand: "honda",
+  year: 2034,
+};
+// bike.year = "2024";// This will result in a TypeScript error
 
-// - Create a variable discount of type number | string and assign it the value 20. Then, try to assign it the value '20%'.
-let discount: number | string = 20;
-discount = "20%";
+// - Create an object laptop of type { brand: string, year: number } and try to assign an object with missing year property to it.
+// let laptop: {
+//   brand: string;
+//   year: number;
+// } = {
+//   brand: "Apple",
+// }; This will result in a TypeScript error
 
-// Array
-const numbers: number[] = [343, 34, 2, 32, 23];
-const friendNames: string[] = ["susan", "hanna", "chillan"];
-let newValues: (string | number)[] = ["rokib", "susan", 32];
-let array: (string | boolean)[] = ["rokib", "32", "hasan", false, true];
+// - Create an array products of type { title: string, price?: number }[] and assign it some values. Then, try to add an object with a price property of type string to it.
 
-// ## Challenge
+let product1 = { title: "Xiaomi Band", price: 3000 };
+let product2 = { title: "Apple Watch", price: 23000 };
+let product3 = { title: "Samsung Phone" };
 
-// - Create an array temperatures of type number[] and assign it some values. Then, try to add a string value to it.
-let temparatues: number[] = [44, 43, 88, 55, -56];
-// temparatues.push("rokib");// This will result in a TypeScript error
-
-// - Create an array colors of type string[] and assign it some values. Then, try to add a boolean value to it.
-let colors: string[] = ["blue", "green", "yello"];
-// colors.push(false) // This will result in a TypeScript error
-
-// - Create an array mixedArray of type (number | string)[] and assign it some values. Then, try to add a boolean value to it.
-let mixedArray: (number | string)[] = [1, "two", 3];
-// mixedArray.push(false); // This will result in a TypeScript error
+let products: { title: string; price?: number }[] = [
+  product1,
+  product2,
+  product3,
+];
+// products.push({ title: "New Watch", expense: 1200 }); //This will result in a TypeScript error
