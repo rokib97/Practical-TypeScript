@@ -58,3 +58,35 @@ let products: { title: string; price?: number }[] = [
   product3,
 ];
 // products.push({ title: "New Watch", expense: 1200 }); //This will result in a TypeScript error
+
+// Function
+
+function sayHi(name: string) {
+  console.log(`Hello there ${name.toUpperCase()}`);
+}
+sayHi("rokib");
+
+function calculateDiscount(price: number): number {
+  return price * 0.9;
+}
+const finalResult = calculateDiscount(200);
+
+// ## Challenge
+
+// - Create a new array of names.
+// - Write a new function that checks if a name is in your array. This function should take a name as a parameter and return a boolean.
+
+const names: string[] = ["rokib", "saki", "habib"];
+
+function nameInTheList(name: string): boolean {
+  return names.includes(name);
+}
+
+let nameToCheck = "rokibul";
+if (nameInTheList(nameToCheck)) {
+  console.log(`${nameToCheck} is in the list`);
+} else {
+  console.log(`${nameToCheck} is not in the list`);
+}
+
+// - Use this function to check if various names are in your array and log the results.
